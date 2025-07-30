@@ -6,7 +6,7 @@ rule make_dna_brnn:
         mem=1,
     threads: 1
     conda:
-        "../envs/env.yml"
+        "Rhodonite_env"
     log:
         "logs/make-dna-brnn.log",
     shell:
@@ -34,7 +34,7 @@ rule run_split_dna_brnn:
         mem=config.get("mem", 8),
     threads: config.get("threads", 4)
     conda:
-        "../envs/env.yml"
+        "Rhodonite_env"
     log:
         "logs/{sample}/dna-brnn/{scatteritem}.log",
     shell:
@@ -58,7 +58,7 @@ rule dna_brnn:
         mem=config.get("mem", 8),
     threads: 1
     conda:
-        "../envs/env.yml"
+        "Rhodonite_env"
     log:
         "logs/{sample}/dna-brnn.log",
     params:
