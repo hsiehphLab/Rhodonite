@@ -29,7 +29,7 @@ rule run_split_trf:
         dat=temp("results/{sample}/trf/{scatteritem}/{scatteritem}.dat"),
     threads: 1
     conda:
-        "../envs/env.yml"
+        "Rhodonite_env"
     log:
         "logs/{sample}/trf/{scatteritem}.log",
     resources:
@@ -52,7 +52,7 @@ rule trf_bed:
     resources:
         mem=config.get("mem", 8),
     conda:
-        "../envs/env.yml"
+        "Rhodonite_env"
     log:
         "logs/{sample}/trf.log",
     script:
@@ -71,7 +71,7 @@ rule trf:
     resources:
         mem=config.get("mem", 8),
     conda:
-        "../envs/env.yml"
+        "Rhodonite_env"
     log:
         "logs/{sample}/trf.log",
     shell:
