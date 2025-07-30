@@ -8,7 +8,8 @@ rule run_split_gaps:
         mem=config.get("mem", 16),
     threads: 1
     conda:
-        "../envs/env.yml"
+        #"Rhodonite_env" gave "No module named pysam"
+        "/projects/standard/hsiehph/shared/conda_shared/envs/Rhodonite_env"
     log:
         "logs/{sample}/gaps/{scatteritem}.log",
     script:
@@ -25,7 +26,8 @@ rule gaps:
         mem=config.get("mem", 8),
     threads: 1
     conda:
-        "../envs/env.yml"
+        #"Rhodonite_env" trying to solve error AttributeError: 'CondaEnvDirSpec' object has no attribute 'file'
+        "/projects/standard/hsiehph/shared/conda_shared/envs/Rhodonite_env"
     log:
         "logs/{sample}/gaps.log",
     shell:
