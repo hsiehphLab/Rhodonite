@@ -11,7 +11,8 @@ rule split_fasta:
         mem=config.get("mem", 8),
     threads: 1
     conda:
-        "../envs/env.yml"
+        #"Rhodonite_env" gave "No module named pysam"
+        "/projects/standard/hsiehph/shared/conda_shared/envs/Rhodonite_env"
     log:
         "logs/{sample}/fasta/split.log",
     script:
@@ -28,7 +29,7 @@ rule unzip_fasta:
         mem=config.get("mem", 8),
     threads: 1
     conda:
-        "../envs/env.yml"
+        "Rhodonite_env"
     log:
         "logs/{sample}/fasta/unzip.log",
     shell:
