@@ -11,7 +11,7 @@ rule run_DupMasker_step_1:
         mem=config.get("mem", 16),
     threads: config.get("threads", 16)
     conda:
-        "../envs/env.yml"
+        "Rhodonite_env"
     log:
         "logs/{sample}/RepeatMasker/dup_masker_1.{scatteritem}.log",
     params:
@@ -38,7 +38,7 @@ rule setup_DupMasker:
         mem=1,
     threads: 1
     conda:
-        "../envs/env.yml"
+        "Rhodonite_env"
     log:
         "logs/DupMasker_setup.log",
     params:
@@ -71,7 +71,7 @@ rule run_DupMasker_step_2:
         mem=config.get("mem", 8),
     threads: config.get("threads", 4)
     conda:
-        "../envs/env.yml"
+        "Rhodonite_env"
     log:
         "logs/{sample}/RepeatMasker/dup_masker_2.{scatteritem}.log",
     shell:
@@ -94,7 +94,7 @@ rule run_DupMasker_step_3:
         mem=4,
     threads: 1
     conda:
-        "../envs/env.yml"
+        "Rhodonite_env"
     log:
         "logs/{sample}/RepeatMasker/dup_masker_3.{scatteritem}.log",
     params:
@@ -120,7 +120,7 @@ rule DupMasker:
         mem=4,
     threads: 1
     conda:
-        "../envs/env.yml"
+        "Rhodonite_env"
     log:
         "logs/{sample}/RepeatMasker/DupMasker.log",
     params:
