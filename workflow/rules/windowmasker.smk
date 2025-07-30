@@ -7,7 +7,7 @@ rule dust_count:
         mem=config.get("mem", 16),
     threads: 1
     conda:
-        "../envs/blast.yml"
+        "Rhodonite_blast"
     log:
         "logs/{sample}/windowmasker/dust_count.log",
     params:
@@ -30,7 +30,7 @@ rule run_windowmasker:
         mem=config.get("mem", 16),
     threads: 1
     conda:
-        "../envs/blast.yml"
+        "Rhodonite_blast"
     log:
         "logs/{sample}/windowmasker/intervals.log",
     shell:
@@ -49,7 +49,7 @@ rule run_windowmasker_bed:
         mem=config.get("mem", 16),
     threads: 1
     conda:
-        "../envs/env.yml"
+        "Rhodonite_env"
     log:
         "logs/{sample}/windowmasker/bed.log",
     script:
@@ -68,7 +68,7 @@ rule windowmasker:
         mem=config.get("mem", 16),
     threads: 1
     conda:
-        "../envs/env.yml"
+        "Rhodonite_env"
     log:
         "logs/{sample}/windowmasker/done.log",
     shell:
