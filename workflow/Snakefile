@@ -6,7 +6,12 @@ from snakemake.utils import min_version
 
 min_version("6.0")
 
-S_DIR = os.path.realpath(os.path.dirname(srcdir("Snakefile")))
+print( "about to debug" )
+szSnakefile = os.path.abspath(__file__)
+print( f"szSnakefile = {szSnakefile}" )
+szDir = os.path.dirname( szSnakefile )
+print( f"szDir = {szDir}" )
+S_DIR = os.path.realpath( szDir )
 shell.prefix(f"set -eo pipefail;")
 
 
@@ -37,6 +42,9 @@ samples:
     sys.stderr.write("[ERROR]: {}\n".format(sys.exc_info()[0]))
     sys.exit(1)
 
+
+
+
 n_records = config.pop("n_records", 200)
 for sample, ref in config["samples"].items():
     try:
@@ -56,6 +64,7 @@ scattergather:
 
 wildcard_constraints:
     sample="|".join(list(config["samples"].keys())),
+
 
 
 # rules for each program
