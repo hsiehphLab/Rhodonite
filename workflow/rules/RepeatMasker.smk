@@ -6,7 +6,7 @@ rule setup_RepeatMasker:
         mem=config.get("mem", 8),
     threads: config.get("threads", 8)
     conda:
-        "../envs/env.yml"
+        "rmsk2"
     log:
         "logs/RepeatMasker.build.log",
     params:
@@ -40,10 +40,10 @@ rule run_split_RepeatMasker:
         ),
         tbl=temp("results/{sample}/RepeatMasker/{scatteritem}/{scatteritem}.fa.tbl"),
     resources:
-        mem=config.get("mem", 8),
+        mem=16,
     threads: config.get("threads", 8)
     conda:
-        "../envs/env.yml"
+        "rmsk2"
     log:
         "logs/{sample}/RepeatMasker/{scatteritem}.log",
     params:
@@ -77,7 +77,7 @@ rule make_RepeatMasker_bed:
     resources:
         mem=config.get("mem", 8),
     conda:
-        "../envs/env.yml"
+        "Rhodonite_env"
     log:
         "logs/{sample}/RepeatMasker/{scatteritem}.bed.log",
     threads: 1
@@ -99,7 +99,7 @@ rule RepeatMasker:
         mem=config.get("mem", 8),
     threads: 1
     conda:
-        "../envs/env.yml"
+        "Rhodonite_env"
     log:
         "logs/{sample}/RepeatMasker.log",
     shell:
